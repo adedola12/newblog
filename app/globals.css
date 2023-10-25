@@ -25,3 +25,34 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+@layer utilities {
+  .bg-custom-style {
+    background-color: #57c4ff31;
+  }
+  .bg-custom-travel {
+    background-color: #ff573131;
+  }
+  .bg-custom-fashion {
+    background-color: #31ff5731;
+  }
+  .bg-custom-food {
+    background-color: #3131ff57;
+  }
+  .bg-custom-culture {
+    background-color: #5731ff31;
+  }
+  .bg-custom-coding {
+    background-color: #31ff3157;
+  }
+}
+
+
+.ql-container{
+  font-size: 48px;
+}
+
+.quill > .ql-container > .ql-editor.ql-blank::before{
+  color: #b3b3b1
+}
