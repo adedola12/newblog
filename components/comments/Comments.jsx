@@ -2,12 +2,14 @@
 
 import {ThemeContext} from '@/context/ThemeContext';
 import {useClerk} from '@clerk/nextjs';
+import { useSession } from 'next-auth/react';
 import React, {useContext} from 'react';
 
 const Comments = () => {
 
   const {theme} = useContext (ThemeContext);
-  const {user} = useClerk ();
+  
+  const { status } = useSession()
 
   return (
     <div className='mt-[50px]'>
@@ -15,7 +17,7 @@ const Comments = () => {
         Comments
       </h1>
 
-      {user
+      {status === "authenticated"
         ? <div className="justify-between flex items-center gap-[30px] ">
             <textarea
               rows={3}

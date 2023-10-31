@@ -5,6 +5,7 @@ import Footer from '@/components/footer/Footer';
 import { ClerkProvider } from '@clerk/nextjs';
 import { ThemeContextProvider } from '@/context/ThemeContext';
 import ThemeProvider from '@/providers/ThemeProvider';
+import AuthProvider from '@/providers/AuthProvider';
 
 
 
@@ -18,9 +19,9 @@ export const metadata = {
 export default function RootLayout({
   children}) {
   return (
-    <ClerkProvider>
     <html lang="en">
       <body className={inter.className}>
+      <AuthProvider>
       <ThemeContextProvider>
       <ThemeProvider>
         <div className='min-h-[100vh]'>
@@ -32,8 +33,9 @@ export default function RootLayout({
         </div>
       </ThemeProvider>
       </ThemeContextProvider>
+      </AuthProvider>
       </body>
     </html>
-    </ClerkProvider>
+   
   );
 }

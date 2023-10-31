@@ -1,16 +1,45 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Book, BookIcon, Image, ImageIcon, PlusCircle, Video } from 'lucide-react'
 import ReactQuill from 'react-quill'
 import "react-quill/dist/quill.bubble.css"
+import { useSession } from '@clerk/nextjs'
+import { useRouter } from 'next/navigation'
+import { ThemeContext } from '@/context/ThemeContext'
 
 const WritePage = () => {
 
-  const [open, setOpen] = useState(false)
-  const [value, setValue] = useState('')
+  const { theme } = useContext(ThemeContext)
 
-  const style = 'h-[36px] w-[36px] flex items-center justify-center cursor-pointer'
+    const { status } = useSession()
+
+    console.log(`${data}data, ${status}status`)
+
+    const router = useRouter()
+
+    const [open, setOpen] = useState(false)
+    const [value, setValue] = useState('')
+  
+    const style = 'h-[36px] w-[36px] flex items-center justify-center cursor-pointer'
+
+    if (status === 'loading') {
+      return<div className='font-bold text-[36px]'>Loading...</div>
+    }
+
+    if (status === 'authenticated') {
+      router.push('/')
+    }
+
+
+
+  if (status === 'loading') {
+    return <div className=''>Loading...</div>
+  }
+
+  if (status === "authenticated") {
+    router.push("/")
+  }
   
 
   return (

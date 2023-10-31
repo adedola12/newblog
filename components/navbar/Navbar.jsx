@@ -42,7 +42,8 @@ const Navbar = () => {
         <Link href="/" className='max-[640px]:hidden'>Homepage</Link>
         <Link href="/" className='max-[640px]:hidden'>Contact</Link>
         <Link href="/" className='max-[640px]:hidden'>About</Link>
-        {window.innerWidth <= 640 ? <AuthLinks /> : <AuthSection />}
+        {/* {window.innerWidth <= 640 ? <AuthLinks /> : <AuthSection />} */}
+        <AuthLinks />
       </div>
     </div>
   )
